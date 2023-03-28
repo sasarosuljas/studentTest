@@ -1,0 +1,54 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 12-27-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <div class="slds-page-header">
+    <div class="slds-align_absolute-center">
+          <div class="slds-text-heading_large">
+              <div class="slds-m-around_xx-large">Student Registration Form</div>
+          </div>
+    </div>
+  </div>
+  <div class="slds-card slds-size_full">
+        <lightning-record-edit-form object-api-name="Student__c" onsubmit={handleSubmit}>
+            <div>
+              <lightning-messages onerror={handleError}></lightning-messages>
+            </div>
+            <div class="slds-col slds-size_2-of-2 slds-p-around_small">
+              <lightning-input-field field-name="Name" required></lightning-input-field>
+            </div>
+            <div class="slds-col slds-size_2-of-2 slds-p-around_small">
+              <lightning-input-field field-name="Last_Name__c" required></lightning-input-field>
+            </div> 
+            <div class="slds-col slds-size_2-of-2 slds-p-around_small"> 
+              <lightning-input-field field-name="National_Identification_Number__c" onchange={handleNationalIdentificationNumberChange}></lightning-input-field>
+            </div>
+            <div class="slds-col slds-size_2-of-2 slds-p-around_small">  
+              <lightning-input-field field-name="Date_of_Birth__c"></lightning-input-field>
+            </div>
+            <div class="slds-col slds-size_2-of-2 slds-p-around_small">  
+              <lightning-input-field field-name="Gender__c"></lightning-input-field>
+            </div>
+            <div class="slds-col slds-size_2-of-2 slds-p-around_small">  
+              <lightning-input-field field-name="Type_of_study__c" onchange={handleTypeOfStudyChange}></lightning-input-field>
+            </div>
+            <template if:true={showPayerField}>
+              <div class="slds-col slds-size_2-of-2 slds-p-around_small">
+                <lightning-input-field field-name="Payer__c"></lightning-input-field>
+              </div>
+            </template>
+              <div class="slds-align_absolute-center slds-m-around_medium">
+                <lightning-button
+                  type="submit"
+                  name="submit"
+                  label="Save"
+                  class="slds-m-top_medium">
+                </lightning-button>
+              </div>
+        </lightning-record-edit-form>
+  </div>
+</template>
